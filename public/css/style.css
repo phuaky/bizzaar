@@ -1,0 +1,40 @@
+body{
+  text-align: center;
+  background-color: #3D8ED0;
+}
+
+.brand {
+  height: 30px;
+}
+
+.navbar {
+  background-color: : #B54355;
+}
+
+.logIn {
+  display: inline-block;
+}
+
+.signUp {
+  display: inline-block;
+}
+
+/* unvisited link */
+a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}

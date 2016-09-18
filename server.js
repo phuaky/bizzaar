@@ -2,6 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var ejsLayouts = require('express-ejs-layouts');
 var app = express();
+// var dotenv = require('dotenv')
+// dotenv.load()
+// console.log(process.env.MYNAME)
 
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
@@ -22,8 +25,19 @@ console.log('Homepage Loading...');
 app.get('/', function (req, res) {
   res.render('index');
 });
-console.log('Hompage Loaded');
 
+// renders pre-signup page
+app.get('/pre-signup', function (req, res) {
+  console.log('Pre-signup Loading...');
+  res.render('accounts/signup/pre-signup');
+});
+
+// renders sign up page for the young
+app.get('/signup', function (req, res) {
+  res.render('accounts/signup/signup');
+});
+
+app.use('/auth', require('./controllers/auth'));
 
 var server = app.listen(process.env.PORT || 3000);
 

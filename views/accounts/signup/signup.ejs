@@ -1,0 +1,43 @@
+<div class="container">
+  <form id="submit-signup" action="/auth/signup" method="POST">
+    <!-- email -->
+    <div class="form-group">
+      <label for="InputEmail">Email address</label>
+      <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <!-- first name -->
+    <div class="form-group">
+      <label for="InputFirstName">First Name</label>
+      <input type="text" class="form-control" name="firstName" placeholder="FirstName">
+    </div>
+    <!-- last name -->
+    <div class="form-group">
+      <label for="InputLastName">Last Name</label>
+      <input type="text" class="form-control" name="lastName" placeholder="LastName">
+    </div>
+    <!-- password -->
+    <div class="form-group">
+      <label for="InputPassword">Password</label>
+      <input type="password" class="form-control" name="password" placeholder="Password">
+    </div>
+
+    <fieldset class="form-group">
+      <legend>Radio buttons</legend>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="type" id="optionsRadios1" value="WiseGuys" checked>
+          WiseGuys
+        </label>
+      </div>
+      <div class="form-check">
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="type" id="optionsRadios2" value="Punks">
+          Punks
+        </label>
+      </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+</div>

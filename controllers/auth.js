@@ -21,18 +21,18 @@ console.log("im loading");
   }).spread(function(user, created) {
     if (created) {
       // if created, success and redirect home
-      // console.log('User created!');
-      // console.log(user);
-      // res.redirect('/');
+      console.log('User created!');
+      console.log(user);
+      res.redirect('/');
     } else {
       // if not created, the email already exists
-      // console.log('Email already exists');
-      // res.redirect('/auth/signup');
+      console.log('Email already exists');
+      res.redirect('/auth/signup');
     }
   }).catch(function(error) {
     // if an error occurs, let's see what the error is
-    // console.log('An error occurred: ', error.message);
-    // res.redirect('/auth/signup');
+    console.log('An error occurred: ', error.message);
+    res.redirect('/auth/signup');
   });
 })
 

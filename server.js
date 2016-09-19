@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var ejsLayouts = require('express-ejs-layouts');
+var session = require('express-session');
 var app = express();
 // var dotenv = require('dotenv')
 // dotenv.load()
@@ -8,6 +9,13 @@ var app = express();
 
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
+
+// set up session
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
 
 console.log('SERVER goes live in 3.. 2.. 1');
 

@@ -41,6 +41,24 @@ console.log("im loading");
   });
 })
 
+// UPDATING PARTICULARS
+router.post('/update/:email', function(req, res) {
+  var email = req.params.email
+  db.UserAccounts.update({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    age: req.body.age,
+    sex: req.body.radio
+}, {
+  where: {
+    email: email
+  }
+}).then(function(user) {
+  // do something when done updating
+  res.redirect('/user_dashboard');
+});
+});
+
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/user_dashboard',
   failureRedirect: '/login',

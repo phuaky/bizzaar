@@ -67,9 +67,23 @@ app.get('/signup', function (req, res) {
   res.render('accounts/signup/signup');
 });
 
+//BROWSE page
+app.get('/browse', function (req, res) {
+  res.render('browse')
+})
+
+//About page
+app.get('/about', function (req, res) {
+  res.render('about')
+})
+
 //renders DASHBOARD after SUCCESSFUL LOGGING IN
 app.get('/user_dashboard', isLoggedIn, function (req, res) {
   res.render('dashboard/user_dashboard');
+});
+
+app.get('/user_setting', isLoggedIn, function (req, res) {
+  res.render('dashboard/user_setting');
 });
 
 app.use('/auth', require('./controllers/auth'));

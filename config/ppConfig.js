@@ -16,6 +16,7 @@ passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'
 }, function(email, password, cb) {
+  email=email.toLowerCase();
   db.UserAccounts.find({
     where: { email: email }
   }).then(function(user) {

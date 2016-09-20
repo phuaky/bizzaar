@@ -2,24 +2,25 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Experienced & Young</title>
+    <title>Bizzaar</title>
     <!-- load jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-    <!-- load CSS -->
+    <!-- Bootstrap 4 CSS and JS -->
     <link rel="stylesheet" href="/css/bootstrap.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
 
     <nav class="navbar navbar-light"  style="background-color: #e3f2fd;">
       <a class="navbar-brand" href="/">
-        <img class="brand" src="/img/young_vs_old.jpg" alt="" />
+        <img class="brand" src="/img/money_brand.png" alt="" />
       </a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/browse">Browse</a>
+          <a class="nav-link" href="/auth_biz/browse">Browse</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/about">About</a>
@@ -45,6 +46,9 @@
             </div>
           </div>
         </li>
+        <li class="nav-item pull-xs-right">
+          <a class="nav-link" href="/listings">List</a>
+        </li>
         <form class="form-inline pull-xs-center">
           <input class="form-control" type="text" placeholder="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
@@ -54,13 +58,8 @@
 
     </nav>
 
-    <div class="content">
-      <h1>Mix Experienced with Young</h1>
-    </div>
-
     <% include ./partials/alerts %>
 
     <%- body %>
-
   </body>
 </html>

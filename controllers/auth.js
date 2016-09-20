@@ -5,7 +5,7 @@ var passport = require('../config/ppConfig');
 var router = express.Router();
 
 router.post('/signup', function(req, res) {
-var email = req.body.email
+var email = req.body.email.toLowerCase();
 
 console.log("im loading");
 

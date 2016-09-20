@@ -1,0 +1,111 @@
+<div class="container">
+  <form id="submit-create" action="/auth_biz/final_new_listing/<%- currentUser.email %>" method="POST">
+    <div class="form-group">
+      <label for="Industry">Industry</label>
+      <select class="form-control" name="industry">
+        <option value="Agriculture and Fishing">Agriculture and Fishing</option>
+        <option value="Mining and Quarrying">Mining and Quarrying</option>
+        <option value="Manufacturing">Manufacturing</option>
+        <option value="Electricity, Gas, Steam and Air-Conditioning Supply">Electricity, Gas, Steam and Air-Conditioning Supply</option>
+        <option value="Water Supply; Sewerage, Waste Management and Remediation Activities">Water Supply; Sewerage, Waste Management and Remediation Activities</option>
+        <option value="Construction">Construction</option>
+        <option value="Wholesale and Retail Trade">Wholesale and Retail Trade</option>
+        <option value="Transportation and Storage">Transportation and Storage</option>
+        <option value="Accomodation and Food Service Activities">Accomodation and Food Service Activities</option>
+        <option value="Information and Communications">Information and Communications</option>
+        <option value="Financial and Insurance Activities">Financial and Insurance Activities</option>
+        <option value="Real Estate Activities">Real Estate Activities</option>
+        <option value="Professional, Scientific and Technical Activities">Professional, Scientific and Technical Activities</option>
+        <option value="Administrative and Support Service Activities">Administrative and Support Service Activities</option>
+        <option value="Public Administration and Defence">Public Administration and Defence</option>
+        <option value="Education">Education</option>
+        <option value="Health and Social Services">Health and Social Services</option>
+        <option value="Arts, Entertainment and Recreation">Arts, Entertainment and Recreation</option>
+        <option value="Other Service Activities">Other Service Activities</option>
+        <option value="Activities of Households as Employers of Domestic Personnel">Activities of Households as Employers of Domestic Personnel</option>
+        <option value="Activities of Extra-Territorial Organisations and Bodies">Activities of Extra-Territorial Organisations and Bodies</option>
+        <option value="Activities Not Adequately Defined">Activities Not Adequately Defined</option>
+    </select>
+  </div>
+<h2>Business Profile</h2>
+  <div class="form-group">
+    <label for="BizName">Business Name</label>
+    <input type="text" class="form-control" name="name" placeholder="Business Name">
+  </div>
+
+  <div class="form-group">
+    <label for="sector">Sector</label>
+    <input type="text" class="form-control" name="sector" placeholder="Sector">
+  </div>
+
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input type="text" class="form-control" name="address" placeholder="Address">
+  </div>
+
+  <div class="form-group">
+    <label for="website">Website</label>
+    <input type="text" class="form-control" name="website" placeholder="Website">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" class="form-control" name="description" placeholder="Description">
+  </div>
+
+<h2>Key Summary</h2>
+<div class="form-group">
+  <label for="value">Valuation of Business</label>
+  <div class="input-group">
+    <div class="input-group-addon">$</div>
+  <input type="number" class="form-control" name="valuation" placeholder="Value">
+</div>
+</div>
+
+  <div class="form-group">
+    <label for="revenue">Revenue</label>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+    <input type="number" class="form-control" name="revenue" placeholder="Revenue">
+  </div>
+</div>
+
+  <div class="form-group">
+    <label for="grossprofit">Gross Profit</label>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+    <input type="number" class="form-control" name="grossprofit" placeholder="Gross Profit">
+  </div>
+</div>
+
+  <div class="form-group">
+    <label for="netprofit">Net Profit</label>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+    <input type="number" class="form-control" name="netprofit" placeholder="Net Profit">
+  </div>
+</div>
+
+  <div class="form-group">
+    <label for="cashflow">Cash Flow</label>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+    <input type="number" class="form-control" name="cashflow" placeholder="Cash Flow">
+  </div>
+</div>
+
+  <div class="form-group">
+    <label for="employees">Employees</label>
+    <input type="number" class="form-control" name="employees" placeholder="No. of Employees">
+  </div>
+
+  <!-- <div class="form-group">
+    <label for=""></label>
+    <input type="text" class="form-control" name="" placeholder="">
+  </div> -->
+    <div class="col-xs-12">
+      <button type="submit" class=" btn btn-primary ">Post</button>
+    </div>
+
+  </form>
+</div>

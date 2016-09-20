@@ -67,14 +67,24 @@ app.get('/signup', function (req, res) {
   res.render('accounts/signup/signup');
 });
 
-//BROWSE page
-app.get('/browse', function (req, res) {
-  res.render('browse')
-})
-
 //About page
 app.get('/about', function (req, res) {
   res.render('about')
+})
+
+//Listing page
+app.get('/listings', isLoggedIn, function (req, res) {
+  res.render('listings/listings')
+})
+
+//New Listing page
+app.get('/new_listing', isLoggedIn, function (req, res) {
+  res.render('listings/new_listing')
+})
+
+//FINAL New Listing page
+app.get('/final_new_listing', isLoggedIn, function (req, res) {
+  res.render('listings/final_new_listing')
 })
 
 //renders DASHBOARD after SUCCESSFUL LOGGING IN
@@ -87,6 +97,8 @@ app.get('/user_setting', isLoggedIn, function (req, res) {
 });
 
 app.use('/auth', require('./controllers/auth'));
+
+app.use('/auth_biz', require('./controllers/auth_biz'));
 
 var server = app.listen(process.env.PORT || 3000);
 

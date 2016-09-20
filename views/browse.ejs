@@ -1,0 +1,39 @@
+<div class="container" id="entire">
+  <!-- filter div -->
+  <div class="container col-xs-7" id="filterDiv">
+    PRICE RANGE SCROLL BAR
+  </div>
+  <!-- industry div -->
+  <div class="container col-xs-5" id="information">
+    INDUSTRY INFORMATION
+  </div>
+  <!-- content div -->
+  <div class="container col-xs-7" id="contentDiv">
+    <% data.forEach(function(listing){%>
+      <% if (listing.value > 1000) { %>
+    <div class="row">
+      <!-- Image -->
+      <div class="col-xs-4">
+        <img id="pic" src="/img/pokemon-go-logo.jpg" />
+      </div>
+      <!-- Main Content -->
+      <div class="col-xs-4">
+            <span id="BizName"><%= listing.businessName %></span><br>
+            <span class="lil"><%= listing.sector %></span><br>
+            <span class="lil">Since 2005 - 11years</span>
+      </div>
+      <!-- Sub-content -->
+      <div class="col-xs-4">
+        <span id="Vdisplay">$<%= listing.value.toLocaleString() %></span>
+      </div>
+
+    </div>
+    <div class="dropdown-divider"></div>
+    <% } %>
+  <% }); %>
+
+
+
+  </div>
+
+</div>

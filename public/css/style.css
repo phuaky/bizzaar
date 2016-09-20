@@ -38,3 +38,49 @@ a:hover {
 a:active {
     color: blue;
 }
+
+#filterDiv {
+border: 2px dashed yellow;
+height: auto;
+}
+
+#information {
+  border: 2px dashed green;
+  height: auto;
+}
+
+#contentDiv {
+  text-align: left;
+  border: 2px dotted orange;
+  padding: 10px;
+}
+
+#BizName {
+  font-size: 16pt;
+  color: #924BEE;
+}
+
+.lil {
+  font-size: 10pt;
+  color: #d3d3d3;
+}
+
+#entire {
+  border: 5px solid black;
+}
+
+#Vdisplay {
+  font-size: 16pt;
+  color: #B8DAD8;
+}
+
+#pic {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+}
+
+/*.col-xs-3 {
+  border: 1px solid black;
+
+}*/

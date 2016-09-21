@@ -4,13 +4,70 @@ var db = require('../models');
 var passport = require('../config/ppConfig');
 var router = express.Router();
 
-//BROWSE page
+// BROWSE page
 router.get('/browse', function (req, res) {
-  db.listing.findAll().then(function(data){
-    res.render('browse', {data: data});
-  })
+  if (req.query.range) {
+    var rangeData = req.query.range
+    console.log(req.body.range);
+    db.listing.findAll({
+      where: {
+        value: {
+          gt: parseInt(rangeData)
+        }
+      }
+    }).then(function (obj) {
+      // console.log(obj);
+      res.render('browse', {data: obj});
+    });
+  } else {
+    db.listing.findAll().then(function (data) {
+      res.render('browse', {data: data});
+    });
+  }
+});
+
+// Browse with Price range
+router.post('/find_price', function (req, res) {
+  var rangeData = req.body.range
+  console.log(req.body.range);
+  db.listing.findAll({
+    where: {
+      value: {
+        gt: parseInt(rangeData)
+      }
+    }
+  }).then(function (obj) {
+    // console.log(obj);
+    res.json(obj);
+  });
 })
 
+// Listing page
+router.get('/listings', function (req, res) {
+  var email = req.user.email;
+  db.listing.findAll({
+    where: {
+      listedBy: email
+    }
+  }).then(function (data) {
+    res.render('listings/listings', {data: data});
+  });
+});
+
+//listed business page
+router.get('/biz_profile', function (req, res) {
+  var name = req.user.get()
+  console.log('this is name: ' + name);
+  // db.listing.findAll({
+  //   where: {
+  //     businessName: name
+  //   }
+  // }).then(function (data) {
+  res.render('listings/biz_profile', {data: data})
+// })
+})
+
+//create new listing
 router.post('/final_new_listing/:email', function (req, res) {
   var listedBy = req.params.email;
   var name = req.body.name;

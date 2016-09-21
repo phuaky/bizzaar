@@ -80,7 +80,6 @@ height: auto;
   border-radius: 15px;
 }
 
-/*.col-xs-3 {
-  border: 1px solid black;
-
-}*/
+#ls {
+  border: 3px dashed green;
+}

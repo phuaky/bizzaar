@@ -1,8 +1,6 @@
 <% data.forEach(function(listing){%>
-  <div class="container col-xs-7" id="contentDiv">
-    <div class="row" id="contentrow">
+  <div class="container-fluid">
       <!-- Image -->
-      <div class="row">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -28,22 +26,20 @@
             <span class="icon-next" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div>
-
       </div>
-      <a href="#">
-        <!-- Main Content -->
-        <div class="col-xs-4">
-              <span id="BizName"><%= listing.businessName %></span><br>
-              <span class="lil"><%= listing.sector %></span><br>
-              <span class="lil">Since 2005 - 11years</span>
-        </div>
-        <!-- Sub-content -->
-        <div class="col-xs-4">
-          <span id="Vdisplay">$<%= listing.value.toLocaleString() %></span>
-        </div>
-      </a>
     </div>
-</div>
-</a>
+
+    <div class="container">
+      <!-- Main Content -->
+      <div class="col-xs-4">
+            <span id="BizName"><%= listing.businessName %></span><br>
+            <span class="lil"><%= listing.sector %></span><br>
+            <span class="lil">Since 2005 - 11years</span>
+      </div>
+      <!-- Sub-content -->
+      <div class="col-xs-4">
+        <span id="Vdisplay">$<%= listing.value.toLocaleString() %></span>
+      </div>
+    </div>
+
 <% }); %>

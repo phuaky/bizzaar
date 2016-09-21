@@ -50,6 +50,28 @@ app.get('/', function (req, res) {
   res.render('index');
 });
 
+// BROWSE page
+app.get('/browse', function (req, res) {
+  if (req.query.range) {
+    var rangeData = req.query.range
+    console.log(req.body.range);
+    db.listing.findAll({
+      where: {
+        value: {
+          gt: parseInt(rangeData)
+        }
+      },
+      order: 'value DESC'
+    }).then(function (obj) {
+      res.render('browse', {data: obj});
+    });
+  } else {
+    db.listing.findAll().then(function (data) {
+      res.render('browse', {data: data});
+    });
+  }
+});
+
 // renders login page
 app.get('/login', function (req, res) {
   console.log('Log in page loading...');

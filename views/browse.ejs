@@ -21,7 +21,6 @@
   </a>
   <!-- content div -->
   <% data.forEach(function(listing){%>
-    <!-- <% if (listing.value > 1000) { %> -->
     <div class="container col-xs-7" id="contentDiv">
       <div class="row" id="contentrow">
         <!-- Image -->
@@ -54,7 +53,7 @@
           </div>
 
         </div>
-        <a href="#">
+        <a href="/auth_biz/biz_profile/<%= listing.id %>">
           <!-- Main Content -->
           <div class="col-xs-4">
                 <span id="BizName"><%= listing.businessName %></span><br>
@@ -70,7 +69,6 @@
       <div class="dropdown-divider"></div>
   </div>
   </a>
-  <!-- <% } %> -->
 <% }); %>
 
 </div>

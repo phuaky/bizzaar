@@ -10,4 +10,10 @@
     <% }); %>
   <% } %>
 
+  <% if (alerts.deleted) { %>
+    <% alerts.deleted.forEach(function(msg) { %>
+      <div class="alert alert-success"><%= msg %></div>
+    <% }); %>
+  <% } %>
+
 </div>

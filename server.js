@@ -72,20 +72,6 @@ app.get('/about', function (req, res) {
   res.render('about')
 })
 
-//Listing page
-app.get('/listings', isLoggedIn, function (req, res) {
-  res.render('listings/listings')
-})
-
-//Listing page
-app.get('/listings/:id', isLoggedIn, function (req, res) {
-  req.params.id
-
-  db.listings.findById
-  
-  res.render('listings/listing', listing)
-})
-
 //New Listing page
 app.get('/new_listing', isLoggedIn, function (req, res) {
   res.render('listings/new_listing')

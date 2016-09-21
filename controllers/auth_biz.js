@@ -16,7 +16,6 @@ router.get('/browse', function (req, res) {
         }
       }
     }).then(function (obj) {
-      // console.log(obj);
       res.render('browse', {data: obj});
     });
   } else {
@@ -25,22 +24,6 @@ router.get('/browse', function (req, res) {
     });
   }
 });
-
-// Browse with Price range
-router.post('/find_price', function (req, res) {
-  var rangeData = req.body.range
-  console.log(req.body.range);
-  db.listing.findAll({
-    where: {
-      value: {
-        gt: parseInt(rangeData)
-      }
-    }
-  }).then(function (obj) {
-    // console.log(obj);
-    res.json(obj);
-  });
-})
 
 // Listing page
 router.get('/listings', function (req, res) {
@@ -55,16 +38,25 @@ router.get('/listings', function (req, res) {
 });
 
 //listed business page
-router.get('/biz_profile', function (req, res) {
-  var name = req.user.get()
+router.get('/biz_profile/:id', function (req, res) {
+  var name = req.params.id
   console.log('this is name: ' + name);
   // db.listing.findAll({
   //   where: {
   //     businessName: name
   //   }
   // }).then(function (data) {
-  res.render('listings/biz_profile', {data: data})
+  res.render('/biz_profile', {data: data})
 // })
+})
+
+//Jerem's idea biz profile page
+router.get('/listings/:id', function (req, res) {
+  req.params.id
+
+  db.listings.findById
+
+  res.render('listings/listing', listing)
 })
 
 //create new listing

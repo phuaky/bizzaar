@@ -12,24 +12,7 @@ $(function () {
 });
 
 function getPriceRange (rangeData) {
-  // console.log(rangeData, typeof rangeData);
   window.location = '/auth_biz/browse?range=' + rangeData;
-  // $.ajax({
-  //   url: '/auth_biz/find_price',
-  //   type: 'POST',
-  //   data: {range: rangeData}
-  // })
-  //   .done(function (data) {
-  //     console.log('success getting price range', data)
-  //     // location.reload()
-  //
-  //   })
-  //   .fail(function () {
-  //     console.log('error, cant get price range')
-  //   })
-  //   .always(function () {
-  //     // console.log('complete')
-  //   })
 }
 
 // Browse with Price range

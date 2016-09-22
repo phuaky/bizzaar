@@ -1,6 +1,7 @@
 <% data.forEach(function(business){%>
 <%- business.id %>
 <div class="container">
+  <h2>Business Profile</h2>
   <form id="submit-create" action="/auth_biz/update/<%- business.id %>" method="POST">
     <div class="form-group">
       <label for="Industry">Industry</label>
@@ -29,7 +30,7 @@
         <option value="Activities Not Adequately Defined">Activities Not Adequately Defined</option>
     </select>
   </div>
-<h2>Business Profile</h2>
+
   <div class="form-group">
     <label for="BizName">Business Name</label>
     <input type="text" class="form-control" name="name" value=" <%- business.businessName %> " placeholder="Business Name">
@@ -60,13 +61,19 @@
   <label for="value">Sell Price of Business</label>
   <div class="input-group">
     <div class="input-group-addon">S$</div>
-  <input type="number" class="form-control" name="value" value=" <%- business.value %> " placeholder="Value">
+  <input type="number" class="form-control" name="value" value= <%- business.value %> >
 </div>
 </div>
 
 <div class="form-group">
   <label for="year">year created</label>
-  <input type="number" class="form-control" name="bizcreated" value=" <%- business.bizcreated %> " placeholder="Year">
+  <input type="number" class="form-control" name="bizcreated" value= <%- business.bizcreated %> >
+</div>
+
+<!-- IMG -->
+<div class="form-group">
+  <label for="img">Url of img</label>
+  <input type="text" class="form-control" name="bizid" value="<%- business.bizid %>" placeholder="http://...">
 </div>
 
 

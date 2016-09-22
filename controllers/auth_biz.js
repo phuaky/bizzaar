@@ -66,7 +66,8 @@ router.post('/final_new_listing', isLoggedIn, function (req, res) {
     website: req.body.website,
     description: req.body.description,
     value: req.body.valuation,
-    bizcreated: req.body.bizcreated
+    bizcreated: req.body.bizcreated,
+    bizid: req.body.bizid
   }).then(function (zebra) {
     req.flash('success', 'Congratulations, your business is listed!');
     console.log('Business listed!');
@@ -97,7 +98,8 @@ var id = req.params.id;
     website: req.body.website,
     description: req.body.description,
     value: req.body.value,
-    bizcreated: req.body.bizcreated
+    bizcreated: req.body.bizcreated,
+    bizid: req.body.bizid
   }, {
     where: {
       id: id

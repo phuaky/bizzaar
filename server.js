@@ -3,8 +3,8 @@ var bodyParser = require('body-parser');
 var ejsLayouts = require('express-ejs-layouts');
 var session = require('express-session');
 var passport = require('./config/ppConfig');
-const dotenv = require('dotenv')
-dotenv.load()
+const dotenv = require('dotenv');
+dotenv.load();
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
 
@@ -14,7 +14,6 @@ app.set('view engine', 'ejs');
 app.use(ejsLayouts);
 
 // set up session
-
 
 console.log('SERVER goes live in 3.. 2.. 1');
 
@@ -37,7 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   // before every route, attach the flash messages and current user to res.locals
   res.locals.alerts = req.flash();
   res.locals.currentUser = req.user;
@@ -53,7 +52,7 @@ app.get('/', function (req, res) {
 // BROWSE page
 app.get('/browse', function (req, res) {
   if (req.query.range) {
-    var rangeData = req.query.range
+    var rangeData = req.query.range;
     console.log(req.body.range);
     db.listing.findAll({
       where: {
@@ -75,8 +74,8 @@ app.get('/browse', function (req, res) {
 // renders login page
 app.get('/login', function (req, res) {
   console.log('Log in page loading...');
-  res.render('accounts/login/login')
-})
+  res.render('accounts/login/login');
+});
 
 // renders pre-signup page
 app.get('/pre-signup', function (req, res) {
@@ -89,22 +88,22 @@ app.get('/signup', function (req, res) {
   res.render('accounts/signup/signup');
 });
 
-//About page
+// About page
 app.get('/about', function (req, res) {
-  res.render('about')
-})
+  res.render('about');
+});
 
-//New Listing page
+// New Listing page
 app.get('/new_listing', isLoggedIn, function (req, res) {
-  res.render('listings/new_listing')
-})
+  res.render('listings/new_listing');
+});
 
-//FINAL New Listing page
+// FINAL New Listing page
 app.get('/final_new_listing', isLoggedIn, function (req, res) {
-  res.render('listings/final_new_listing')
-})
+  res.render('listings/final_new_listing');
+});
 
-//renders DASHBOARD after SUCCESSFUL LOGGING IN
+// renders DASHBOARD after SUCCESSFUL LOGGING IN
 app.get('/user_dashboard', isLoggedIn, function (req, res) {
   res.render('dashboard/user_dashboard');
 });

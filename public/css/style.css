@@ -1,10 +1,16 @@
 body{
   text-align: center;
   background-color: white;
+  font-family: "Lucida Bright", Georgia, serif;
 }
 
 h1 {
   padding: 5px;
+}
+
+a:hover {
+  color: #d7d7d7;
+  text-decoration: none;
 }
 
 .text-left {
@@ -15,8 +21,8 @@ h1 {
   height: 30px;
 }
 
-.navbar {
-  background-color: : #B54355;
+.ink {
+  color: white;
 }
 
 .logIn {
@@ -27,45 +33,25 @@ h1 {
   display: inline-block;
 }
 
-/* unvisited link */
-a:link {
-    color: red;
-}
-
-/* visited link */
-a:visited {
-    color: green;
-}
-
-/* mouse over link */
-a:hover {
-    color: hotpink;
-}
-
-/* selected link */
-a:active {
-    color: blue;
-}
-
-#filterDiv {
+/*#filterDiv {
 border: 2px dashed yellow;
 height: auto;
-}
+}*/
 
-#information {
+/*#information {
   border: 2px dashed green;
   height: auto;
-}
+}*/
 
-#contentDiv {
+/*#contentDiv {
   text-align: left;
   border: 2px dotted orange;
   padding: 10px;
-}
+}*/
 
 #BizName {
   font-size: 16pt;
-  color: #924BEE;
+  color: #CA8b88;
 }
 
 .lil {
@@ -77,9 +63,9 @@ height: auto;
   color: #d3d3d3;
 }
 
-#entire {
+/*#entire {
   border: 5px solid black;
-}
+}*/
 
 #Vdisplay {
   font-size: 16pt;
@@ -92,9 +78,9 @@ height: auto;
   border-radius: 15px;
 }
 
-#ls {
+/*#ls {
   border: 3px dashed green;
-}
+}*/
 #carouRow {
 
 }
@@ -103,9 +89,9 @@ height: auto;
   height: 500px;
 }
 
-#KeyRow {
+/*#KeyRow {
   border: 5px solid gold;
-}
+}*/
 
 .pclass {
   padding: 5px 0;
@@ -117,4 +103,14 @@ height: auto;
 
 .zhngText {
   font-size: 10pt;
+}
+#ink {
+  color: white;
+  font-family: "Lucida Bright", Georgia, serif;
+}
+
+
+#profilePic {
+  height: 30px;
+  border-radius: 10pt;
 }

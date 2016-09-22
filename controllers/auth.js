@@ -17,8 +17,7 @@ router.post('/signup', function (req, res) {
     defaults: {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      password: req.body.password,
-      type: req.body.type
+      password: req.body.password
     }
   }).spread(function (user, created) {
     if (created) {
@@ -48,8 +47,7 @@ router.post('/update/:email', function (req, res) {
   db.UserAccounts.update({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
-    age: req.body.age,
-    sex: req.body.radio
+    address: req.body.address
   }, {
     where: {
       email: email

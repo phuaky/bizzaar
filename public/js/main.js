@@ -20,7 +20,7 @@ function loadPriceRange (data) {
   console.log('loadPriceRange activated');
   var hello = ""
   var priceRanges = {
-    catA1: 999999,
+    catA1: 9999999999999,
     catC1: 99999,
     catC2: 49999,
     catD1: 24999,

@@ -1,5 +1,7 @@
+<% data.forEach(function(business){%>
+<%- business.id %>
 <div class="container">
-  <form id="submit-create" action="/auth_biz/final_new_listing" method="POST">
+  <form id="submit-create" action="/auth_biz/update/<%- business.id %>" method="POST">
     <div class="form-group">
       <label for="Industry">Industry</label>
       <select class="form-control" name="industry">
@@ -30,7 +32,7 @@
 <h2>Business Profile</h2>
   <div class="form-group">
     <label for="BizName">Business Name</label>
-    <input type="text" class="form-control" name="name" placeholder="Business Name">
+    <input type="text" class="form-control" name="name" value= <%- business.businessName %> placeholder="Business Name">
   </div>
   <!-- created since  -->
   <div class="form-group">
@@ -40,40 +42,58 @@
 
   <div class="form-group">
     <label for="sector">Sector</label>
-    <input type="text" class="form-control" name="sector" placeholder="Sector">
+    <input type="text" class="form-control" name="sector" value= <%- business.sector %> placeholder="Sector">
   </div>
 
   <div class="form-group">
     <label for="address">Address</label>
-    <input type="text" class="form-control" name="address" placeholder="Address">
+    <input type="text" class="form-control" name="address" value= <%- business.address %> placeholder="Address">
   </div>
 
   <div class="form-group">
     <label for="website">Website</label>
-    <input type="text" class="form-control" name="website" placeholder="Website">
+    <input type="text" class="form-control" name="website" value= <%- business.website %> placeholder="Website">
   </div>
 
   <div class="form-group">
     <label for="description">Description</label>
-    <input type="text" class="form-control" name="description" placeholder="Description">
+    <input type="text" class="form-control" name="description" value= <%- business.description %> placeholder="Description">
   </div>
 
 <!-- <h2>Key Summary</h2> -->
 <div class="form-group">
-  <label for="value">Valuation of Business</label>
+  <label for="value">Sell Price of Business</label>
   <div class="input-group">
     <div class="input-group-addon">$</div>
-  <input type="number" class="form-control" name="valuation" placeholder="Value">
+  <input type="number" class="form-control" name="value" value= <%- business.value %> placeholder="Value">
 </div>
 </div>
 
-  <!-- <div class="form-group">
-    <label for=""></label>
-    <input type="text" class="form-control" name="" placeholder="">
-  </div> -->
     <div class="col-xs-12">
-      <button type="submit" class=" btn btn-primary ">Post</button>
+      <button type="submit" class=" btn btn-primary ">Update</button>
+    </div>
+
+    <!-- Delete modal -->
+    <button type="button" class="btn btn-danger dropdown-item" data-toggle="modal" data-target=".bd-example-modal-sm">Delete</button>
+
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          Are you sure you want to delete?
+
+          <form action="/auth_biz/<%- listing.id %>" method="POST">
+            <button type="submit" name="delete">Yes</button>
+          </form>
+
+        </div>
+      </div>
     </div>
 
   </form>
 </div>
+<% }) %>
+
+<!-- <div class="form-group">
+  <label for=""></label>
+  <input type="text" class="form-control" name="" placeholder="">
+</div> -->

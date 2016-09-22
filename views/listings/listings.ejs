@@ -52,7 +52,7 @@
           </div>
           <a href="/auth_biz/biz_profile/<%= listing.id %>">
             <!-- Main Content -->
-            <div class="col-xs-6">
+            <div class="col-xs-5">
                   <span id="BizName"><%= listing.businessName %></span><br>
                   <span class="lil">Last Updated On:
                     <% var wholeDate = listing.updatedAt; %>
@@ -62,26 +62,21 @@
             </div>
           </a>
           <!-- Confugure buttons -->
-          <div class="col-xs-2">
+          <div class="col-xs-3">
             <!-- Edit Button -->
-            <a href="#">
-              <button class="btn btn-primary"type="button" name="Edit">Edit</button>
-            </a>
-              <!-- Delete modal -->
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-sm">Delete</button>
+              <div class="btn-group">
+                <button type="button" class="btn btn-danger">Edit</button>
+                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/auth_biz/create_biz_details/<%= listing.id %>">Add Details</a>
+                  <a class="dropdown-item" href="#">Edit Details</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/auth_biz/biz_profile/biz_edit/<%= listing.id %>">Edit Biz Profile</a>
 
-              <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-sm">
-                  <div class="modal-content">
-                    Are you sure you want to delete?
-
-                    <form action="/auth_biz/<%- listing.id %>" method="POST">
-                      <button type="submit" name="delete">Yes</button>
-                    </form>
-
-                  </div>
                 </div>
               </div>
+
           </div>
 
         </div>

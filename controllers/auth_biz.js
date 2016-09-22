@@ -8,7 +8,7 @@ var router = express.Router();
 // BROWSE page
 router.get('/browse', function (req, res) {
   if (req.query.range) {
-    var rangeData = req.query.range
+    var rangeData = req.query.range;
     console.log(req.body.range);
     db.listing.findAll({
       where: {
@@ -27,69 +27,170 @@ router.get('/browse', function (req, res) {
   }
 });
 
-// Listing page
+// LISTINGS page
 router.get('/listings', isLoggedIn, function (req, res) {
   var id = req.user.id;
   db.listing.findAll({
     where: {
       UserAccountId: id
     },
-    order: 'id DESC'
+    order: 'id DESC' // id of row(latest created above)
   }).then(function (data) {
     res.render('listings/listings', {data: data});
   });
 });
 
-//listed business page
+// LISTINGS business page
 router.get('/biz_profile/:id', function (req, res) {
-  var id = req.params.id
+  var id = req.params.id;
   console.log('this is name: ' + id);
   db.listing.findAll({
     where: {
       id: id
     }
   }).then(function (data) {
-  res.render('listings/biz_profile', {data: data})
-})
-})
+    res.render('listings/biz_profile', {data: data});
+  });
+});
 
-//create new listing WITH associations
+//CREATE NEW BIZ PAGE WITH ASSOCIATIONS
 router.post('/final_new_listing', function (req, res) {
   req.user.createListing({
+    businessName: req.body.name,
     industry: req.body.industry,
     sector: req.body.sector,
     address: req.body.address,
     website: req.body.website,
     description: req.body.description,
     value: req.body.valuation
-  }).then(function(zebra) {
+  }).then(function (zebra) {
     req.flash('success', 'Congratulations, your business is listed!');
     console.log('Business listed!');
-    res.redirect('/user_dashboard');
+    res.redirect('/auth_biz/listings');
   });
-})
+});
 
-//DELETE BUSINESS Listing
-router.post('/:id', function(req, res) {
+//GET BIZ EDIT PAGE
+router.get('/biz_profile/biz_edit/:id', isLoggedIn, function (req, res) {
+  var id = req.params.id;
+  db.listing.findAll({
+    where: {
+      id: id
+    }
+  }).then(function (data) {
+    console.log(data);
+    res.render('listings/final_new_listing_edit', {data: data});
+  });
+});
+
+// POST LISTING UPDATES
+router.post('/update/:id', function (req, res) {
+  var id = req.params.id;
+
+  db.listing.update({
+    businessName: req.body.name,
+    sector: req.body.sector,
+    address: req.body.address,
+    website: req.body.website,
+    description: req.body.description,
+    value: req.body.value
+  }, {
+    where: {
+      id: id
+    }
+  }).then(function (user) {
+    req.flash('edited', 'Business Profile updated successfully');
+    res.redirect('/auth_biz/listings');
+  });
+});
+
+//GET CREATE NEW BIZ DETAILS page
+router.get('/create_biz_details/:id', isLoggedIn, function (req, res) {
+  var id = req.params.id;
+  db.listing.findAll({
+    where: {
+      id: id
+    }
+  }).then(function (data) {
+    console.log(data);
+    res.render('listings/create_biz_details', {data: data});
+  });
+});
+
+//POST Create NEW BIZ DETAILS
+router.post('/create_biz_details/:id', function (req, res) {
+  db.listing.findById(req.params.id).then(function(listing){
+    listing.createBizdetail({
+      revenue: req.body.revenue,
+      grosprofit: req.body.grosprofit,
+      netprofit: req.body.netprofit,
+      cashflow: req.body.cashflow,
+      operatingexpenses: req.body.operatingexpenses,
+      totalassets: req.body.totalassets,
+      totalliabilities: req.body.totalliabilities,
+      employee: req.body.employee
+    }).then(function (zebra) {
+      req.flash('success', 'Your business detail has been successfully added');
+      console.log('Business detail added!');
+      res.redirect('/auth_biz/listings');
+    });
+  })
+});
+
+//GET EDIT NEW BIZ DETAILS page
+router.get('/edit_biz_details/:id', isLoggedIn, function (req, res) {
+  var id = req.params.id;
+  db.listing.findAll({
+    where: {
+      id: id
+    }
+  }).then(function (data) {
+    console.log(data);
+    res.render('listings/create_biz_details', {data: data});
+  });
+});
+
+//POST EDIT NEW BIZ DETAILS
+router.post('/edit_biz_details/:id', function (req, res) {
+  db.bizdetail.update({
+    revenue: req.body.revenue,
+    grosprofit: req.body.grosprofit,
+    netprofit: req.body.netprofit,
+    cashflow: req.body.cashflow,
+    operatingexpenses: req.body.operatingexpenses,
+    totalassets: req.body.totalassets,
+    totalliabilities: req.body.totalliabilities,
+    employee: req.body.employee
+  }, {
+      where: {
+      id: req.params.id
+    }
+  }).then(function(user) {
+    req.flash('success', 'Your business detail has been updated');
+    console.log('Business detail updated!');
+    res.redirect('/auth_biz/listings');
+  });
+});
+
+// DELETE BUSINESS Listing
+router.post('/:id', function (req, res) {
   var hello = req.params.id;
   console.log('i am going to delete ' + hello);
-    db.listing.destroy({
+  db.listing.destroy({
     where: { id: hello }
-  }).then(function() {
-    req.flash('deleted', 'Business is deleted')
+  }).then(function () {
+    req.flash('deleted', 'Business is deleted');
     res.redirect('listings');
   });
-
-})
+});
 
 module.exports = router;
 
-
-//create new listing
+// create new listing
 // router.post('/final_new_listing/:email', function (req, res) {
-//   var listedBy = req.params.email;
-//   var name = req.body.name;
-//   console.log('creating listing');
+//   var listedBy = req.params.email
+//   var name = req.body.name
+//   console.log('creating listing')
 //
 //   db.listing.findOrCreate({
 //     where: {
@@ -107,19 +208,32 @@ module.exports = router;
 //   }).spread(function (user, created) {
 //     if (created) {
 //       // if created, success and redirect home
-//       req.flash('success', 'Congratulations, your business is listed!');
-//       console.log('Business listed!');
-//       res.redirect('/user_dashboard');
+//       req.flash('success', 'Congratulations, your business is listed!')
+//       console.log('Business listed!')
+//       res.redirect('/user_dashboard')
 //     } else {
 //       // if not created, the email already exists
-//       console.log('Business already exists');
-//       req.flash('error', 'Business already exists');
-//       res.redirect('/listings');
+//       console.log('Business already exists')
+//       req.flash('error', 'Business already exists')
+//       res.redirect('/listings')
 //     }
 //   }).catch(function (error) {
 //     // if an error occurs, let's see what the error is
-//     console.log('An error occurred: ', error.message);
-//     req.flash('error', error.message);
-//     res.redirect('listings');
-//   });
-// });
+//     console.log('An error occurred: ', error.message)
+//     req.flash('error', error.message)
+//     res.redirect('listings')
+//   })
+// })
+
+// db.bizdetial.findById(req.params.id).then(function(listing){
+//   listing.createBizdetail({
+//     revenue: req.body.revenue,
+//     grosprofit: req.body.grosprofit,
+//     netprofit: req.body.netprofit,
+//     cashflow: req.body.cashflow,
+//     operatingexpenses: req.body.operatingexpenses,
+//     totalassets: req.body.totalassets,
+//     totalliabilities: req.body.totalliabilities,
+//     employee: req.body.employee
+//   })
+// }).then(function (zebra) {

@@ -1,0 +1,89 @@
+body{
+  text-align: center;
+  background-color: white;
+}
+
+.brand {
+  height: 30px;
+}
+
+.navbar {
+  background-color: : #B54355;
+}
+
+.logIn {
+  display: inline-block;
+}
+
+.signUp {
+  display: inline-block;
+}
+
+/* unvisited link */
+a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+#filterDiv {
+border: 2px dashed yellow;
+height: auto;
+}
+
+#information {
+  border: 2px dashed green;
+  height: auto;
+}
+
+#contentDiv {
+  text-align: left;
+  border: 2px dotted orange;
+  padding: 10px;
+}
+
+#BizName {
+  font-size: 16pt;
+  color: #924BEE;
+}
+
+.lil {
+  font-size: 10pt;
+  color: #d3d3d3;
+}
+.lil2 {
+  font-size: 8pt;
+  color: #d3d3d3;
+}
+
+#entire {
+  border: 5px solid black;
+}
+
+#Vdisplay {
+  font-size: 16pt;
+  color: #B8DAD8;
+}
+
+#pic {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+}
+
+#ls {
+  border: 3px dashed green;
+}

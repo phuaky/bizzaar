@@ -32,32 +32,27 @@
 <h2>Business Profile</h2>
   <div class="form-group">
     <label for="BizName">Business Name</label>
-    <input type="text" class="form-control" name="name" value= <%- business.businessName %> placeholder="Business Name">
-  </div>
-  <!-- created since  -->
-  <div class="form-group">
-    <label for="created">When was your businesss created?</label>
-    <input type="text" class="form-control" name="bizcreated" placeholder="Business created since">
+    <input type="text" class="form-control" name="name" value=" <%- business.businessName %> " placeholder="Business Name">
   </div>
 
   <div class="form-group">
     <label for="sector">Sector</label>
-    <input type="text" class="form-control" name="sector" value= <%- business.sector %> placeholder="Sector">
+    <input type="text" class="form-control" name="sector" value=" <%- business.sector %> " placeholder="Sector">
   </div>
 
   <div class="form-group">
     <label for="address">Address</label>
-    <input type="text" class="form-control" name="address" value= <%- business.address %> placeholder="Address">
+    <input type="text" class="form-control" name="address" value=" <%- business.address %> " placeholder="Address">
   </div>
 
   <div class="form-group">
     <label for="website">Website</label>
-    <input type="text" class="form-control" name="website" value= <%- business.website %> placeholder="Website">
+    <input type="text" class="form-control" name="website" value=" <%- business.website %> " placeholder="Website">
   </div>
 
   <div class="form-group">
     <label for="description">Description</label>
-    <input type="text" class="form-control" name="description" value= <%- business.description %> placeholder="Description">
+    <input type="text" class="form-control" name="description" value=" <%- business.description %> " placeholder="Description">
   </div>
 
 <!-- <h2>Key Summary</h2> -->
@@ -65,29 +60,35 @@
   <label for="value">Sell Price of Business</label>
   <div class="input-group">
     <div class="input-group-addon">$</div>
-  <input type="number" class="form-control" name="value" value= <%- business.value %> placeholder="Value">
+  <input type="number" class="form-control" name="value" value=" <%- business.value %> " placeholder="Value">
 </div>
 </div>
+
+<div class="form-group">
+  <label for="year">year created</label>
+  <input type="number" class="form-control" name="bizcreated" value=" <%- business.bizcreated %> " placeholder="Year">
+</div>
+
 
     <div class="col-xs-12">
       <button type="submit" class=" btn btn-primary ">Update</button>
     </div>
 
-    <!-- Delete modal -->
-    <button type="button" class="btn btn-danger dropdown-item" data-toggle="modal" data-target=".bd-example-modal-sm">Delete</button>
+    <!-- DELETE MODAL -->
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-sm">Delete</button>
 
-    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          Are you sure you want to delete?
+      <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            Are you sure you want to delete?<br>
 
-          <form action="/auth_biz/<%- listing.id %>" method="POST">
-            <button type="submit" name="delete">Yes</button>
-          </form>
+            <form action="/auth_biz/<%- business.id %>" method="POST">
+              <button type="submit" name="delete">Yes</button>
+            </form>
 
+          </div>
         </div>
       </div>
-    </div>
 
   </form>
 </div>
@@ -95,5 +96,5 @@
 
 <!-- <div class="form-group">
   <label for=""></label>
-  <input type="text" class="form-control" name="" placeholder="">
+  <input type="text" class="form-control" name="" "placeholder="">
 </div> -->

@@ -1,7 +1,7 @@
 <% data.forEach(function(business){%>
 <div class="container">
   <form id="submit-create" action="/auth_biz/create_biz_details/<%- business.id %>" method="POST">
-    <h1><%- business.businessName %>'s </h1>
+    Create bizdetail for <h1><%- business.businessName %> </h1>
 
     <h2>Key Summary</h2>
       <div class="form-group">
@@ -39,22 +39,28 @@
       <!-- Operating Expenses -->
       <div class="form-group">
         <label for="Operating Expenses">Operating Expenses</label>
-        <div class="input-group-addon">$</div>
-        <input type="text" class="form-control" name="operatingexpenses" placeholder="Operating Expenses">
+          <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input type="text" class="form-control" name="operatingexpenses" placeholder="Operating Expenses">
+        </div>
       </div>
 
       <!-- Total Assets -->
       <div class="form-group">
         <label for="Total Assets">Total Assets</label>
-        <div class="input-group-addon">$</div>
-        <input type="text" class="form-control" name="totalassests" placeholder="Total Assets">
+          <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input type="text" class="form-control" name="totalassets" placeholder="Total Assets">
+        </div>
       </div>
 
       <!-- Total Liabilities -->
       <div class="form-group">
         <label for="Total Liabilities">Total Liabilities</label>
-        <div class="input-group-addon">$</div>
-        <input type="text" class="form-control" name="totalliabilities" placeholder="Total Liabilities">
+          <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input type="text" class="form-control" name="totalliabilities" placeholder="Total Liabilities">
+        </div>
       </div>
 
       <!-- Employees -->

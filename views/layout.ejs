@@ -27,13 +27,16 @@
         </li>
         <li class="nav-item pull-xs-right">
           <div class="btn-group">
+            <% if(currentUser){ %>
             <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <% if(currentUser){ %>
               <%- currentUser.firstName %>
-             <% } else{ %>
-               User
-            <% } %>
             </button>
+             <% } else{ %>
+               <a href="/login">
+               <button class="btn btn-primary" type="button" name="button">Log In</button>
+               </a>
+            <% } %>
+
             <div class="dropdown-menu dropdown-menu-right">
               <a class="dropdown-item" href="/user_dashboard">Profile</a>
               <a class="dropdown-item" href="/user_setting">Settings</a>

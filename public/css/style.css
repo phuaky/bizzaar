@@ -3,6 +3,14 @@ body{
   background-color: white;
 }
 
+h1 {
+  padding: 5px;
+}
+
+.text-left {
+  text-align: left;
+}
+
 .brand {
   height: 30px;
 }
@@ -86,4 +94,23 @@ height: auto;
 
 #ls {
   border: 3px dashed green;
+}
+#carouRow {
+
+}
+
+#picc {
+  height: 500px;
+}
+
+#KeyRow {
+  border: 5px solid gold;
+}
+
+.pclass {
+  padding: 5px 0;
+}
+
+#pricecss {
+  
 }

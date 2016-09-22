@@ -1,13 +1,13 @@
-<% data.forEach(function(business){%>
-<%- business.id %>
+<% data.forEach(function(bizdetail){%>
+<h1>EDIT PAGE </h1><%- bizdetail.id %>
 <div class="container">
-  <form id="submit-create" action="/auth_biz/edit_biz_details/<%- business.id %>" method="POST">
+  <form id="submit-create" action="/auth_biz/edit_biz_details/<%- bizdetail.id %>" method="POST">
     <h2>Key Summary</h2>
       <div class="form-group">
         <label for="revenue">Revenue</label>
         <div class="input-group">
           <div class="input-group-addon">$</div>
-        <input type="number" class="form-control" name="revenue" value="<%- business.revenue %>" placeholder="Revenue">
+        <input type="number" class="form-control" name="revenue" value="<%- bizdetail.revenue %>" placeholder="Revenue">
       </div>
     </div>
 
@@ -15,7 +15,7 @@
         <label for="grossprofit">Gross Profit</label>
         <div class="input-group">
           <div class="input-group-addon">$</div>
-        <input type="number" class="form-control" name="grosprofit" value="<%- business.grosprofit %>" placeholder="Gross Profit">
+        <input type="number" class="form-control" name="grosprofit" value="<%- bizdetail.grosprofit %>" placeholder="Gross Profit">
       </div>
     </div>
 
@@ -23,7 +23,7 @@
         <label for="netprofit">Net Profit</label>
         <div class="input-group">
           <div class="input-group-addon">$</div>
-        <input type="number" class="form-control" name="netprofit" value="<%- business.netprofit %>" placeholder="Net Profit">
+        <input type="number" class="form-control" name="netprofit" value="<%- bizdetail.netprofit %>" placeholder="Net Profit">
       </div>
     </div>
 
@@ -31,37 +31,45 @@
         <label for="cashflow">Cash Flow</label>
         <div class="input-group">
           <div class="input-group-addon">$</div>
-        <input type="number" class="form-control" name="cashflow" value="<%- business.cashflow %>" placeholder="Cash Flow">
+        <input type="number" class="form-control" name="cashflow" value="<%- bizdetail.cashflow %>" placeholder="Cash Flow">
       </div>
     </div>
 
       <!-- Operating Expenses -->
       <div class="form-group">
         <label for="Operating Expenses">Operating Expenses</label>
-        <div class="input-group-addon">$</div>
-        <input type="text" class="form-control" name="operatingexpenses" value="<%- business.operatingexpenses %>" placeholder="Operating Expenses">
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input type="text" class="form-control" name="operatingexpenses" value="<%- bizdetail.operatingexpenses %>" placeholder="Operating Expenses">
+        </div>
       </div>
 
       <!-- Total Assets -->
       <div class="form-group">
         <label for="Total Assets">Total Assets</label>
-        <div class="input-group-addon">$</div>
-        <input type="text" class="form-control" name="totalassests" value="<%- business.totalassests %>" placeholder="Total Assets">
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input type="text" class="form-control" name="totalassests" value="<%- bizdetail.totalassests %>" placeholder="Total Assets">
+        </div>
       </div>
 
       <!-- Total Liabilities -->
       <div class="form-group">
         <label for="Total Liabilities">Total Liabilities</label>
-        <div class="input-group-addon">$</div>
-        <input type="text" class="form-control" name="totalliabilities" value="<%- business.totalliabilities %>" placeholder="Total Liabilities">
+        <div class="input-group">
+          <div class="input-group-addon">$</div>
+          <input type="text" class="form-control" name="totalliabilities" value="<%- bizdetail.totalliabilities %>" placeholder="Total Liabilities">
+        </div>
       </div>
 
       <!-- Employees -->
         <div class="form-group">
           <label for="employees">Number of Employees</label>
-          <input type="number" class="form-control" name="employee" value="<%- business.employee %>" placeholder="No. of Employees">
-        </div>
-        <!-- button -->
+          <div class="input-group">
+            <input type="number" class="form-control" name="employee" value="<%- bizdetail.employee %>" placeholder="No. of Employees">
+          </div>
+        </div><!-- butt
+        on -->
         <div class="col-xs-12">
           <button type="submit" class=" btn btn-primary ">Create</button>
         </div>

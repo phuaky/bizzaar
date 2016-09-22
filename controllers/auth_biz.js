@@ -43,18 +43,22 @@ router.get('/listings', isLoggedIn, function (req, res) {
 // LISTINGS business page
 router.get('/biz_profile/:id', function (req, res) {
   var id = req.params.id;
-  console.log('this is name: ' + id);
+  console.log('this id is: ' + id);
   db.listing.findAll({
+    include: [db.bizdetail],
     where: {
       id: id
     }
-  }).then(function (data) {
-    res.render('listings/biz_profile', {data: data});
-  });
+  }).then(function (listings) {
+    console.log(listings);
+      // console.log('data passed back is ' + typeof({data:data}) + {data:data});
+      res.render('listings/biz_profile', {listings: listings} );
+  })
+
 });
 
 //CREATE NEW BIZ PAGE WITH ASSOCIATIONS
-router.post('/final_new_listing', function (req, res) {
+router.post('/final_new_listing', isLoggedIn, function (req, res) {
   req.user.createListing({
     businessName: req.body.name,
     industry: req.body.industry,
@@ -62,7 +66,8 @@ router.post('/final_new_listing', function (req, res) {
     address: req.body.address,
     website: req.body.website,
     description: req.body.description,
-    value: req.body.valuation
+    value: req.body.valuation,
+    bizcreated: req.body.bizcreated
   }).then(function (zebra) {
     req.flash('success', 'Congratulations, your business is listed!');
     console.log('Business listed!');
@@ -84,16 +89,16 @@ router.get('/biz_profile/biz_edit/:id', isLoggedIn, function (req, res) {
 });
 
 // POST LISTING UPDATES
-router.post('/update/:id', function (req, res) {
-  var id = req.params.id;
-
+router.post('/update/:id', isLoggedIn, function (req, res) {
+var id = req.params.id;
   db.listing.update({
     businessName: req.body.name,
     sector: req.body.sector,
     address: req.body.address,
     website: req.body.website,
     description: req.body.description,
-    value: req.body.value
+    value: req.body.value,
+    bizcreated: req.body.bizcreated
   }, {
     where: {
       id: id
@@ -118,7 +123,7 @@ router.get('/create_biz_details/:id', isLoggedIn, function (req, res) {
 });
 
 //POST Create NEW BIZ DETAILS
-router.post('/create_biz_details/:id', function (req, res) {
+router.post('/create_biz_details/:id', isLoggedIn, function (req, res) {
   db.listing.findById(req.params.id).then(function(listing){
     listing.createBizdetail({
       revenue: req.body.revenue,
@@ -140,18 +145,18 @@ router.post('/create_biz_details/:id', function (req, res) {
 //GET EDIT NEW BIZ DETAILS page
 router.get('/edit_biz_details/:id', isLoggedIn, function (req, res) {
   var id = req.params.id;
-  db.listing.findAll({
+  db.bizdetail.findAll({
     where: {
-      id: id
+      listingId: id
     }
   }).then(function (data) {
     console.log(data);
-    res.render('listings/create_biz_details', {data: data});
+    res.render('listings/edit_biz_details', {data: data});
   });
 });
 
 //POST EDIT NEW BIZ DETAILS
-router.post('/edit_biz_details/:id', function (req, res) {
+router.post('/edit_biz_details/:id', isLoggedIn, function (req, res) {
   db.bizdetail.update({
     revenue: req.body.revenue,
     grosprofit: req.body.grosprofit,
@@ -237,3 +242,27 @@ module.exports = router;
 //     employee: req.body.employee
 //   })
 // }).then(function (zebra) {
+
+
+
+// checking 2 database
+// // LISTINGS business page
+// router.get('/biz_profile/:id', function (req, res) {
+//   var id = req.params.id;
+//   console.log('this id is: ' + id);
+//   db.listing.findAll({
+//     where: {
+//       id: id
+//     }
+//   }).then(function (listing) {
+//     db.bizdetail.findAll({
+//       where:{
+//         listingId: id
+//       }
+//     }).then(function (bizdetail) {
+//       // console.log('data passed back is ' + typeof({data:data}) + {data:data});
+//       res.render('listings/biz_profile', {listing: listing, bizdetail: bizdetail } );
+//     });
+//   })
+//
+// });

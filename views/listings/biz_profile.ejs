@@ -48,10 +48,10 @@
         </div>
 
         <div>
-          $<%= business.revenue.toLocaleString() %>Rev  ·
-          $<%= business.netprofit.toLocaleString() %>Profit  ·
-          $<%= business.operatingexpenses.toLocaleString() %>Expenses  ·
-          <%= business.employee %>Employees
+          $<%= business.revenue.toLocaleString() %> Revenue  ·
+          $<%= business.netprofit.toLocaleString() %> Profit  ·
+          $<%= business.operatingexpenses.toLocaleString() %> Expenses  ·
+          <%= business.employee %> Employees
         </div>
 
       </div>
@@ -68,20 +68,35 @@
       <div class="row text-left">
         <div class="dropdown-divider"></div>
         <div class="col-xs-3">
-          <h5>Business Detail</h5>
+          <h5>Business Description</h5>
+        </div>
+
+        <div class="col-xs-9 zhngText">
+          <%= listing.description %>
         </div>
       </div>
 
       <div class="row text-left">
         <div class="dropdown-divider"></div>
+        <div class="col-xs-3">
+          <h5>Business Detail</h5>
+        </div>
+
         <div class="col-xs-4">
+
+        </div>
+      </div>
+
+      <div class="row text-left">
+        <div class="dropdown-divider"></div>
+        <div class="col-xs-3">
           <h5>Story of Business</h5>
         </div>
       </div>
 
       <div class="row text-left">
         <div class="dropdown-divider"></div>
-        <div class="col-xs-5">
+        <div class="col-xs-3">
           <h5>Story about owner</h5>
         </div>
       </div>

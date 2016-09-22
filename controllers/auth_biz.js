@@ -31,11 +31,13 @@ router.get('/browse', function (req, res) {
 router.get('/listings', isLoggedIn, function (req, res) {
   var id = req.user.id;
   db.listing.findAll({
+    include: [db.bizdetail],
     where: {
       UserAccountId: id
     },
-    order: 'id DESC' // id of row(latest created above)
+    order: [['updatedAt', 'DESC']] // id of row(latest created above)
   }).then(function (data) {
+    console.log({data:data});
     res.render('listings/listings', {data: data});
   });
 });
@@ -43,15 +45,12 @@ router.get('/listings', isLoggedIn, function (req, res) {
 // LISTINGS business page
 router.get('/biz_profile/:id', function (req, res) {
   var id = req.params.id;
-  console.log('this id is: ' + id);
   db.listing.findAll({
     include: [db.bizdetail],
     where: {
       id: id
     }
   }).then(function (listings) {
-    console.log(listings);
-      // console.log('data passed back is ' + typeof({data:data}) + {data:data});
       res.render('listings/biz_profile', {listings: listings} );
   })
 
@@ -123,7 +122,7 @@ router.get('/create_biz_details/:id', isLoggedIn, function (req, res) {
 });
 
 //POST Create NEW BIZ DETAILS
-router.post('/create_biz_details/:id', isLoggedIn, function (req, res) {
+router.post('/create_biz_details/:id', isLoggedIn, function (req, res) { //<<<<<<If not created before then can create
   db.listing.findById(req.params.id).then(function(listing){
     listing.createBizdetail({
       revenue: req.body.revenue,
@@ -243,9 +242,7 @@ module.exports = router;
 //   })
 // }).then(function (zebra) {
 
-
-
-// checking 2 database
+// <<<<<<<<<<<<<<<<<<<<checking 2 database
 // // LISTINGS business page
 // router.get('/biz_profile/:id', function (req, res) {
 //   var id = req.params.id;

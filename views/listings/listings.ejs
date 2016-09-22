@@ -61,7 +61,15 @@
                   </span>
             </div>
           </a>
-          <!-- Confugure buttons -->
+          <% function isEmpty(myObject) {
+            for(var key in myObject) {
+                if (myObject.hasOwnProperty(key)) {
+                    return false;
+                }
+            }
+            return true;
+        } %>
+          <!-- Configure buttons -->
           <div class="col-xs-3">
             <!-- Edit Button -->
               <div class="btn-group">
@@ -69,9 +77,11 @@
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 </button>
                 <div class="dropdown-menu">
-                  
-                  <a class="dropdown-item" href="/auth_biz/create_biz_details/<%= listing.id %>">Add Details</a>
-                  <a class="dropdown-item" href="/auth_biz/edit_biz_details/<%= listing.id %>">Edit Details</a>
+                  <% if (!isEmpty(listing.bizdetails)){%>
+                    <a class="dropdown-item" href="/auth_biz/edit_biz_details/<%= listing.id %>">Edit Details</a>
+                  <%} else { %>
+                    <a class="dropdown-item" href="/auth_biz/create_biz_details/<%= listing.id %>">Add Details</a>
+                  <% } %>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="/auth_biz/biz_profile/biz_edit/<%= listing.id %>">Edit Biz Profile</a>
 

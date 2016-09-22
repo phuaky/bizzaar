@@ -25,7 +25,7 @@ function loadPriceRange (data) {
     catC2: 49999,
     catD1: 24999,
     catD2: 9999,
-    catE1: 1000
+    catE1: 4999
   };
   hello = data
   for (var key in priceRanges) {

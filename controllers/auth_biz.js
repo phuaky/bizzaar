@@ -13,7 +13,7 @@ router.get('/browse', function (req, res) {
     db.listing.findAll({
       where: {
         value: {
-          gt: parseInt(rangeData)
+          lt: parseInt(rangeData)
         }
       },
       order: 'value DESC'

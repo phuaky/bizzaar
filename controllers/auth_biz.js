@@ -191,7 +191,8 @@ router.post('/:id', function (req, res) {
   console.log('i am going to delete ' + hello);
   db.listing.destroy({
     where: { id: hello }
-  }).then(function () {
+  }).then(function (jon) {
+    console.log('>>>>>>>>>>>>>>', jon + typeof jon);
     req.flash('deleted', 'Business is deleted');
     res.redirect('listings');
   });

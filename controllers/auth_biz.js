@@ -5,6 +5,13 @@ var passport = require('../config/ppConfig');
 var isLoggedIn = require('../middleware/isLoggedIn');
 var router = express.Router();
 
+//send img to index
+router.get('/', function (req, res) {
+  db.listing.findAll().then(function (data) {
+    res.render('index', {data:data});
+  })
+});
+
 // BROWSE page
 router.get('/browse', function (req, res) {
   if (req.query.range) {

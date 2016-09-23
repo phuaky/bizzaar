@@ -46,7 +46,7 @@ app.use(function (req, res, next) {
 // renders homepage
 console.log('Homepage Loading...');
 app.get('/', function (req, res) {
-  res.render('index');
+  res.redirect('/auth_biz/');
 });
 
 // BROWSE page

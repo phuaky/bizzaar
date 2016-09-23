@@ -1,20 +1,24 @@
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  <% var counter =0; %>
+  <% data.forEach(function(listing) { %>
+    <% if(listing.bizid != null) { %>
+    <li data-target="#carousel-example-generic" data-slide-to="<%= counter %>" <%if(counter==0) {%>class="active"<%}%></li>
+    <% counter++; %>
+    <% } %>
+  <% }); %>
   </ol>
 
   <div class="carousel-inner" role="listbox">
-    <div class="carousel-item center-block active">
-      <img src="img/<%- Math.floor((Math.random() * 4) + 1) %>.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item center-block">
-      <img src="img/<%- Math.floor((Math.random() * 4) + 1) %>.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item center-block">
-      <img src="img/<%- Math.floor((Math.random() * 4) + 1) %>.jpg" alt="Third slide">
-    </div>
+    <% var counter =0; %>
+    <% data.forEach(function(listing) { %>
+      <% if(listing.bizid != null) { %>
+        <div class="carousel-item center-block <%if(counter==0) {%>active<%}%>">
+          <img src="<%= listing.bizid %>" alt="slide">
+        </div>
+        <% counter++; %>
+      <% } %>
+    <% }); %>
   </div>
   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
     <span class="icon-prev" aria-hidden="true"></span>

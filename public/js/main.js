@@ -9,6 +9,11 @@ $(function () {
       )
     );
   });
+
+  $('#contentDiv').click(function () {
+    console.log('im clicking on the div'  + $(this).val());
+    // document.location.href = $(this).val();
+  })
 });
 
 function getPriceRange (rangeData) {

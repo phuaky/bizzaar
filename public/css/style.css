@@ -89,7 +89,7 @@ height: auto;
   height: 500px;
 }
 
-.carousel-inner > .carousel-item > img {
+.carousel-inner > .carousel-item > a > img {
     margin: 0 auto;
     height: 300px;
 }
@@ -109,7 +109,6 @@ height: auto;
   color: white;
   font-family: "Lucida Bright", Georgia, serif;
 }
-
 
 #profilePic {
   height: 30px;

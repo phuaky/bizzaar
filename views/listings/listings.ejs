@@ -15,7 +15,7 @@
     Your business listings are below: <br>
 
     <% data.forEach(function(listing){%>
-      <div class="container" id="contentDiv">
+      <div class="container" id="contentDiv" value="<%= listing.id %>">
         <div class="row" id="contentrow">
           <!-- Image -->
           <div class="col-xs-4">
@@ -29,7 +29,7 @@
                 <div class="carousel-item active">
                   <img id="pic" src="<%- listing.bizid %> " />
                 </div>
-                
+
               </div>
               <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                 <span class="icon-prev" aria-hidden="true"></span>
@@ -85,7 +85,6 @@
         </div>
         <div class="dropdown-divider"></div>
     </div>
-    </a>
   <% }); %>
   </div>
 </div>

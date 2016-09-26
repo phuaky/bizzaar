@@ -44,7 +44,7 @@ router.get('/listings', isLoggedIn, function (req, res) {
     },
     order: [['updatedAt', 'DESC']] // id of row(latest created above)
   }).then(function (data) {
-    console.log({data:data});
+    console.log('>>> this is data now', {data:data});
     res.render('listings/listings', {data: data});
   });
 });

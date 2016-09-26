@@ -89,9 +89,10 @@ height: auto;
   height: 500px;
 }
 
-/*#KeyRow {
-  border: 5px solid gold;
-}*/
+.carousel-inner > .carousel-item > img {
+    margin: 0 auto;
+    height: 300px;
+}
 
 .pclass {
   padding: 5px 0;
